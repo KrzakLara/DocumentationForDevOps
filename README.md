@@ -15,7 +15,7 @@ UUD-Lab1 Commands
 | 10   | `mkdir httpd-container && cd httpd-container`                    | Create a directory for the httpd container      |
 | 11   | `echo "FROM httpd:2.4\nEXPOSE 80" > Dockerfile`                   | Create a Dockerfile for the httpd container     |
 | 12   | `sudo docker build -t my-httpd .`                                 | Build the httpd Docker container                |
-| 13   | `sudo docker run -d -p 8080:80 --name my-running-httpd my-httpd`  | R
+| 13   | `sudo docker run -d -p 8080:80 --name my-running-httpd my-httpd`  | Run the container, mapping port 80 to port                                                                                   8080 locally
 
 
 UUD-Lab2 Commands
