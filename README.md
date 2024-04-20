@@ -71,4 +71,4 @@ UUD-Lab4 Commands
 | 11   | `sudo dnf install podman-compose` or `sudo apt install podman-compose`                               | Installing podman-compose using the package manager                                                                        |
 | 12   | Visit GitHub pages for examples                                                                     | Investigating examples of compose files on GitHub                                                                          |
 | 13   | Create a new file named docker-compose.yml and define services for MySQL and WordPress using compose file syntax | Instructions for creating a docker-compose.yml with the necessary service definitions                                      |
-| 14   | In the terminal, in the directory where your docker-compose.yml file is
+| 14   | In the terminal, in the directory where your docker-compose.yml file is                                     In the terminal, in the directory where your                                                                                                                   docker-compose.yml file is located, run podman-compose up -d
