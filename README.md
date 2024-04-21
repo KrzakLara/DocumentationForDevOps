@@ -61,25 +61,19 @@ Dodatne komande:
 
 
 UUD-Lab3 Commands
-| Concept                   | Description                                                                | Commands and Steps                                                                                                           |
-|---------------------------|----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| PowerShell                | Program used by Microsoft for Windows task automation                      | -                                                                                                                           |
-| Podman                    | Open-source container management tool, alternative to Docker               | -                                                                                                                           |
-| Podman Setup              | Instructions for installing and checking Podman                            | `1. sudo apt update && sudo apt upgrade -y`<br>`2. sudo apt-get install -y podman`<br>`3. podman --version`<br>`4. podman ps` |
-| Nginx                     | A popular web server for hosting web pages                                 | -                                                                                                                           |
-| Docker Hub                | An online library for storing and sharing containers                       | -                                                                                                                           |
-| Searching for Nginx       | Using Podman to search for the latest Nginx container image                | `podman search nginx`                                                                                                       |
-| Running Nginx Instance    | Running a new Nginx instance, mapping port 80                              | `podman run --name my-nginx -p 80:80 -d nginx`                                                                              |
-| Container Management      | Listing all currently running containers. If stopped containers are to be seen, the -a option can be added | `podman ps -a`                                                      |
-| Pulling Nginx Image       | Pulling the latest version of the Nginx image from the default registry    | `podman pull nginx`                                                                                                         |
-| Running Nginx Container   | Starting a new container named my-nginx-container, mapping port 8080 on the host to port 80 in the container | `podman run -d --name my-nginx-container -p 8080:80 nginx`           |
-| Inspecting Nginx Image    | Getting detailed information about a specific container image locally or in the registry | `podman image inspect nginx`<br>`podman image inspect nginx:latest` |
-| Container Creation        | Creating a container instance from an image in the background and mapping it to the host's port 80 | `podman run -d --name web8080 -p 8080:80 nginx`                     |
-| Stopping Containers       | Command to stop a container by its ID or name                              | `podman stop my-web-container`<br>`podman stop <container_id>`      |
-| Removing Containers       | Removing a container if creating another with the same name               | `podman stop web8080`<br>`podman rm web8080`                                                                                |
-| Exporting Container Image | Exporting the Nginx container image using Podman                           | `podman image save nginx > nginx.tar`<br>`podman export my-nginx-container > my-nginx-container.tar`                        |
-| Modifying Containers      | Commands to modify a container and save the changes as a new image        | `1. podman run --name my-nginx-container -d nginx`<br>`2. podman exec -it my-nginx-container /bin/bash`<br>`3. podman commit my-nginx-container my-custom-nginx` |
-| Changing Default Web Page | Changing the content of the default web page within a container without stopping its execution | `podman cp index.html web8080:/usr/share/nginx/html/index.html`     |
+| Step | Command | Description |
+|------|---------|-------------|
+| 1. Containerize the Application Using Podman | `git clone https://github.com/docker/getting-started-app`<br>`cd getting-started-app`<br>`podman build -t my-nodejs-app .`<br>`podman run -d --name my-running-app -p 3000:3000 my-nodejs-app` | Clone the repository and navigate to the application directory. Build the container image and run the container, mapping port 3000 to the host. |
+| 2. Build Image with Initial Tag | `podman build -t getting-started-app .` | Build the initial Docker image from the Containerfile. |
+| 3. Rebuild and Tag Image with 0.0.1 | `podman build -t getting-started-app:0.0.1 .` | Build and tag the image with version 0.0.1. |
+| 4. Inspect the Image | `podman image inspect getting-started-app:0.0.1` | Inspect the detailed information of the image tagged as 0.0.1. |
+| 5. Modify Application and Rebuild | Modify the application code.<br>`podman build -t getting-started-app:0.0.2 .` | Change the message displayed when there are no to-do items. Rebuild the image with the new modifications and tag it as 0.0.2. |
+| 6. Compare Image Versions | `podman diff getting-started-app:0.0.1 getting-started-app:0.0.2` | Show the differences between the two image versions, 0.0.1 and 0.0.2. |
+| 7. Push Images to Docker Hub | `podman login --username yourusername docker.io`<br>`podman push getting-started-app:0.0.1 docker.io/yourusername/getting-started-app:0.0.1`<br>`podman push getting-started-app:0.0.2 docker.io/yourusername/getting-started-app:0.0.2` | Log in to Docker Hub and push the images tagged 0.0.1 and 0.0.2 to Docker Hub. |
+| 8. Create a UBI8 Based Containerfile and Build | Create the Containerfile.<br>`podman build -t myweb:0.0.1 .` | Define a new Containerfile using UBI8 as the base image, including httpd setup. Build the image and tag it as 0.0.1. |
+| 9. Configure Quadlet for System Integration | Follow the quadlet guide to create configuration file. | Configure the system so that the container automatically starts with the system using a quadlet configuration file. |
+| 10. Clone and Build Go Application Using Multi-Stage Builds | `git clone https://github.com/jstanesic/example-go-app`<br>`cd example-go-app`<br>`podman build -f Dockerfile1 -t example:Dockerfile1 .`<br>`podman build -f Dockerfile2 -t example:Dockerfile2 .` | Clone the Go application repository and navigate to the project directory. Build the image using Dockerfile1 and Dockerfile2 to see the benefits of multi-stage builds. |
+| 11. Compare Built Images and Check Benefits of Multi-Stage | `podman image ls` | List and compare the sizes of the built images to discover the benefits of multi-stage builds, especially in reducing the final image size and isolating build dependencies. |
 
 
 UUD-Lab4 Commands
