@@ -12,10 +12,15 @@ UUD-Lab1 Commands
 | 7    | `sudo yum install -y docker-ce docker-ce-cli containerd.io`       | Install Docker Engine                           |
 | 8    | `sudo systemctl start docker`                                     | Start Docker                                    |
 | 9    | `sudo systemctl enable docker`                                    | Set Docker to automatically start on system boot|
-| 10   | `mkdir httpd-container && cd httpd-container`                    | Create a directory for the httpd container      |
+| 10   | `mkdir httpd-container && cd httpd-container`                    | Create a directory for the httpd container      | (ako to ne radi, koristi razlomljenu komandu u 11 i 12)
 | 11   | `echo "FROM httpd:2.4\nEXPOSE 80" > Dockerfile`                   | Create a Dockerfile for the httpd container     |
-| 12   | `sudo docker build -t my-httpd .`                                 | Build the httpd Docker container                |
-| 13   | `sudo docker run -d -p 8080:80 --name my-running-httpd my-httpd`  | Run the container, mapping port 80 to port                                                                                   8080 locally
+| 12   | `mkdir -p httpd-container`                                        | Ensure the httpd-container directory is created only if it doesn't already exist |
+| 13   | `cd httpd-container`                                              | Navigate into the httpd-container directory     |
+| 14   | `echo "FROM httpd:2.4" > Dockerfile`                              | Create and write to Dockerfile                  |
+| 15   | `echo "EXPOSE 80" >> Dockerfile`                                  | Append EXPOSE instruction to Dockerfile         |
+| 16   | `sudo docker build -t my-httpd .`                                 | Build the Docker image                          |
+| 17   | `sudo docker run -d -p 8080:80 --name my-httpd-instance my-httpd` | Run the container                               |
+
 
 
 UUD-Lab2 Commands
