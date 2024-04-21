@@ -75,9 +75,8 @@ UUD-Lab3 Commands
 | 10. Clone and Build Go Application Using Multi-Stage Builds | `git clone https://github.com/jstanesic/example-go-app`<br>`cd example-go-app`<br>`podman build -f Dockerfile1 -t example:Dockerfile1 .`<br>`podman build -f Dockerfile2 -t example:Dockerfile2 .` | Clone the Go application repository and navigate to the project directory. Build the image using Dockerfile1 and Dockerfile2 to see the benefits of multi-stage builds. |
 | 11. Compare Built Images and Check Benefits of Multi-Stage | `podman image ls` | List and compare the sizes of the built images to discover the benefits of multi-stage builds, especially in reducing the final image size and isolating build dependencies. |
 
-<p></p>
+
 UUD-Lab4 Commands
-| Step | Command | Description |
 | Step | Command | Description |
 |------|---------|-------------|
 | 2. List All Podman Networks | `podman network ls` | List all Podman networks; should only show the default network called "podman" with the bridge driver. |
