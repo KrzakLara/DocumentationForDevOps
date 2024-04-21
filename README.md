@@ -21,12 +21,12 @@ UUD-Lab1 Commands
 | 16   | `sudo docker build -t my-httpd .`                                 | Build the Docker image                          |
 | 17   | `sudo docker run -d -p 8080:80 --name my-httpd-instance my-httpd` | Run the container                               |
 
-<b>Dodatne komande, mozda zatrebaju: 
+Dodatne komande, mozda zatrebaju: 
 1. Stop the Existing Container:
-   sudo docker stop my-httpd-instance
+   <b>sudo docker stop my-httpd-instance </b>
 2. To Delete a Stopped Container:
-sudo docker rm [container_name_or_ID]
-</b>
+<b> sudo docker rm [container_name_or_ID] </b>
+
 
 UUD-Lab2 Commands
 | Step                          | Command                                                                                                                           | Description                                                                                         |
