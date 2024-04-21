@@ -13,7 +13,7 @@ UUD-Lab1 Commands
 | 8    | `sudo systemctl start docker`                                     | Start Docker                                    |
 | 9    | `sudo systemctl enable docker`                                    | Set Docker to automatically start on system boot|
 | 10   | `mkdir httpd-container && cd httpd-container`                    | Create a directory for the httpd container      | 
-| 11   | `echo "FROM httpd:2.4\nEXPOSE 80" > Dockerfile`                   | Create a Dockerfile for the httpd container <b>(ako to ne radi, koristi razlomljenu komandu u 11 i 12) </b>    |
+| 11   | `echo "FROM httpd:2.4\nEXPOSE 80" > Dockerfile`                   | Create a Dockerfile for the httpd container <b>(ako se kasnije Docker ne zeli startat, koristi razlomljenu komandu u 11 i 12) </b>    |
 | 12   | `mkdir -p httpd-container`                                        | Ensure the httpd-container directory is created only if it doesn't already exist |
 | 13   | `cd httpd-container`                                              | Navigate into the httpd-container directory     |
 | 14   | `echo "FROM httpd:2.4" > Dockerfile`                              | Create and write to Dockerfile                  |
