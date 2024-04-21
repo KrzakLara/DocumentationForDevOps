@@ -50,14 +50,12 @@ UUD-Lab2 Commands
 | 15. Save changes to a new image                           | `podman commit modify-nginx custom-nginx-image`                                              | Save changes made to a container to a new image with `podman commit`.                              |
 | 16. Modify container's web page without stopping          | `podman cp index.html web8080:/usr/share/nginx/html/index.html`                              | Change the contents of the default web page of the `web8080` container by copying a new `index.html` file into it without stopping the container. Verify changes with `podman exec web8080 cat /usr/share/nginx/html/index.html`. |
 
-
-
-          
-                                       
+                                 
 
 Dodatne komande:
 1. Provjera jel Docker runna: <b> sudo docker run hello-world </b>
-2. 
+2. kak mi se kontejner zove: <b> podman ps </b>
+3. To check if the Docker daemon is running on your system: <b> sudo systemctl status docker </b>
 
 
 
