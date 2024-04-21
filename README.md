@@ -28,6 +28,7 @@ Dodatne komande, mozda zatrebaju:
 <b> sudo docker rm [container_name_or_ID] </b>
 
 
+
 UUD-Lab2 Commands
 | Step                                                       | Command                                                                   | Description                                                                           |
 |------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
@@ -37,11 +38,15 @@ UUD-Lab2 Commands
 | 5. Pull the latest image found with Podman search          | `podman pull [last_image_found_in_search_command]`                        | Pull the latest Nginx container image found in the previous Podman search command     |
 | 6. Inspect the image found with Podman search              | `podman image inspect [last_image_found_in_search_command]`                | Find more information about the Nginx container image found with the Podman search    |
 
+          
                                        |
 
 Dodatne komande:
 1. Provjera jel Docker runna: <b> sudo docker run hello-world </b>
 2. 
+
+
+
 
 UUD-Lab3 Commands
 | Concept                   | Description                                                                | Commands and Steps                                                                                                           |
