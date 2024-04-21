@@ -30,16 +30,17 @@ Dodatne komande, mozda zatrebaju:
 
 
 UUD-Lab2 Commands
-| Step                                                       | Command                                                                   | Description                                                                           |
-|------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| 2. Pull latest Nginx image                                 | `sudo docker pull nginx`                                                  | Pulled the latest Nginx container image from Docker Hub                               |
-| 3. Find latest Nginx image with Podman                     | `podman search nginx --limit 1`                                          | Find the latest Nginx container image from Docker Hub using Podman                    |
-| 4. List running containers with Podman                     | `podman ps`                                                               | List all currently running containers on the system using Podman                       |
-| 5. Pull the latest image found with Podman search          | `podman pull [last_image_found_in_search_command]`                        | Pull the latest Nginx container image found in the previous Podman search command     |
-| 6. Inspect the image found with Podman search              | `podman image inspect [last_image_found_in_search_command]`                | Find more information about the Nginx container image found with the Podman search    |
+| Step                                                      | Command                                                                  | Description                                                                                        |
+|-----------------------------------------------------------|--------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| 2. Pull latest Nginx image                                | `sudo docker pull nginx`                                                 | Pulled the latest Nginx container image from Docker Hub                                            |
+| 3. Find latest Nginx image with Podman                    | `podman search nginx --limit 1`                                          | Find the latest Nginx container image from Docker Hub using Podman                                 |
+| 4. List running containers with Podman                    | `podman ps`                                                              | List all currently running containers on the system using Podman                                   |
+| 5. Pull the latest image found with Podman search         | `podman pull [last_image_found_in_search_command]`                       | Pull the latest Nginx container image found in the previous Podman search command                  |
+| 6. Inspect the image found with Podman search             | `podman image inspect [last_image_found_in_search_command]`               | Find more information about the Nginx container image found with the Podman search                 |
+| 7. Create a container instance and map to host port 80    | `podman run -d -p 80:80 --name my-nginx nginx:latest`                    |Dobit ces error-> resolve it by selecting a different port or ensuring no other services are using port 80.    |
 
           
-                                       |
+                                       
 
 Dodatne komande:
 1. Provjera jel Docker runna: <b> sudo docker run hello-world </b>
