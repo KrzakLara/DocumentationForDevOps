@@ -28,7 +28,7 @@ Dodatne komande, mozda zatrebaju:
 2. To Delete a Stopped Container:
 <b> sudo docker rm [container_name_or_ID] </b>
 
-<p></p>
+
 
 UUD-Lab2 Commands
 | Step                                                      | Command                                                                                     | Description                                                                                        |
@@ -50,8 +50,7 @@ UUD-Lab2 Commands
 | 14b. Differences between save and export                  | N/A                                                                                         | `podman image save` saves the image with all its layers and metadata, suitable for image distribution or backup. `podman export` exports the current filesystem of a container.               |
 | 15. Save changes to a new image                           | `podman commit modify-nginx custom-nginx-image`                                              | Save changes made to a container to a new image with `podman commit`.                              |
 | 16. Modify container's web page without stopping          | `podman cp index.html web8080:/usr/share/nginx/html/index.html`                              | Change the contents of the default web page of the `web8080` container by copying a new `index.html` file into it without stopping the container. Verify changes with `podman exec web8080 cat /usr/share/nginx/html/index.html`. |
-
-                                 
+                                
 
 Dodatne komande:
 1. Provjera jel Docker runna: <b> sudo docker run hello-world </b>
@@ -59,7 +58,7 @@ Dodatne komande:
 3. To check if the Docker daemon is running on your system: <b> sudo systemctl status docker </b>
 
 
-<p></p>
+
 
 UUD-Lab3 Commands
 | Step | Command | Description |
