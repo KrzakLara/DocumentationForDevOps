@@ -37,7 +37,9 @@ UUD-Lab2 Commands
 | 4. List running containers with Podman                    | `podman ps`                                                              | List all currently running containers on the system using Podman                                   |
 | 5. Pull the latest image found with Podman search         | `podman pull [last_image_found_in_search_command]`                       | Pull the latest Nginx container image found in the previous Podman search command                  |
 | 6. Inspect the image found with Podman search             | `podman image inspect [last_image_found_in_search_command]`               | Find more information about the Nginx container image found with the Podman search                 |
-| 7. Create a container instance and map to host port 80    | `podman run -d -p 80:80 --name my-nginx nginx:latest`                    |</b>Dobit ces <b>error </b>-> resolve it by selecting a different port or ensuring no other services are using port 80.    |
+| 7. Create a container instance and map to host port 80    | `podman run -d -p 80:80 --name my-nginx nginx:latest`                    |</b>Dobit ces <b>error </b>-> resolve it by selecting a different port or ensuring no other services are using port 80: <b>sudo ss -tuln (nadi koji je port slobodan), podman stop my-nginx, podman rm my-nginx (stop and remove the existing container with that name). run again (tu komandu: podman run -d -p 8081:80 --name my-nginx nginx:latest)
+</b>    |
+
 
           
                                        
