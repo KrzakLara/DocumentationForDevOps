@@ -29,19 +29,19 @@ Dodatne komande, mozda zatrebaju:
 
 
 UUD-Lab2 Commands
-| Step                          | Command                                                                                                                           | Description                                                                                         |
-|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| Initial Run                   | `wsl --install -> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -> sudo dnf -y install podman -> sudo apt update` | Running PowerShell as an administrator to install Windows Subsystem for Linux (WSL) and Podman       |
-| Clone Git Repo                | `git clone https://github.com/docker/getting-started-app.git`                                                                     | Cloning the Docker Getting Started App repository                                                   |
-| Build Dockerfile              | `1. cd getting-started-app`<br>`2. git clone https://github.com/docker/getting-started-app.git`<br>`3. cd getting-started-app`  | Moving into the cloned repository and preparing to build a Dockerfile                               |
-| Containerization              | `sudo apt update`<br>`sudo apt -y install podman`<br>`podman build -t getting-started-app .`                                     | Installing and building the container image with Podman                                             |
-| Image Tagging                 | `podman tag getting-started-app getting-started-app:0.0.1`                                                                        | Tagging the image with version 0.0.1                                                               |
-| Image Inspection              | `podman image inspect getting-started-app:0.0.1`                                                                                 | Inspecting the image                                                                                |
-| Update Application            | Modify logic or message in the code to meet new requirements and save changes                                                     | Updating application logic or messages within the Dockerfile                                        |
-| Rebuild Image                 | `podman build -t getting-started-app:0.0.2 .`                                                                                    | Rebuilding the image with tag 0.0.2                                                                |
-| System Configuration with Quadlet | Quadlet file setup with systemd and Podman configuration                                                                        | Using Quadlet to manage container lifecycle                                                         |
-| Build and Compare Images      | `1. git clone https://github.com/jstanesic/example-go-app.git`<br>`2. cd example-go-app`<br>`3. podman build -f Dockerfile1 -t example:Dockerfile1 .`<br>`4. podman build -f Dockerfile2 -t example:Dockerfile2`<br>`5. podman images \| grep example` | Building and comparing images from different Dockerfiles                                            |
+| Step                                                       | Command                                                                   | Description                                                                           |
+|------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| 2. Pull latest Nginx image                                 | `sudo docker pull nginx`                                                  | Pulled the latest Nginx container image from Docker Hub                               |
+| 3. Find latest Nginx image with Podman                     | `podman search nginx --limit 1`                                          | Find the latest Nginx container image from Docker Hub using Podman                    |
+| 4. List running containers with Podman                     | `podman ps`                                                               | List all currently running containers on the system using Podman                       |
+| 5. Pull the latest image found with Podman search          | `podman pull [last_image_found_in_search_command]`                        | Pull the latest Nginx container image found in the previous Podman search command     |
+| 6. Inspect the image found with Podman search              | `podman image inspect [last_image_found_in_search_command]`                | Find more information about the Nginx container image found with the Podman search    |
 
+                                       |
+
+Dodatne komande:
+1. Provjera jel Docker runna: <b> sudo docker run hello-world </b>
+2. 
 
 UUD-Lab3 Commands
 | Concept                   | Description                                                                | Commands and Steps                                                                                                           |
