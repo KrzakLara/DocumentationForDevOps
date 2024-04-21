@@ -1,25 +1,26 @@
 # DocumentationForDevOps
 
 UUD-Lab1 Commands
-| Step | Command                                                           | Description                                     |
-|------|-------------------------------------------------------------------|-------------------------------------------------|
-| 1    | `sudo yum update -y`                                              | Update the system packages                      |
-| 2    | `sudo yum install httpd -y`                                       | Install the Apache HTTP Server (httpd)          |
-| 3    | `sudo systemctl start httpd`                                      | Start the httpd service                         |
-| 4    | `sudo systemctl enable httpd`                                     | Enable httpd to start at boot                   |
-| 5    | `sudo yum install -y yum-utils device-mapper-persistent-data lvm2`| Install the necessary packages                  |
-| 6    | `sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo` | Add the Docker repository |
-| 7    | `sudo yum install -y docker-ce docker-ce-cli containerd.io`       | Install Docker Engine                           |
-| 8    | `sudo systemctl start docker`                                     | Start Docker                                    |
-| 9    | `sudo systemctl enable docker`                                    | Set Docker to automatically start on system boot|
-| 10   | `mkdir httpd-container && cd httpd-container`                    | Create a directory for the httpd container      | 
-| 11   | `echo "FROM httpd:2.4\nEXPOSE 80" > Dockerfile`                   | Create a Dockerfile for the httpd container <b>(ako se kasnije Docker ne zeli startat, koristi razlomljenu komandu u 11 i 12) </b>    |
-| 12   | `mkdir -p httpd-container`                                        | Ensure the httpd-container directory is created only if it doesn't already exist |
-| 13   | `cd httpd-container`                                              | Navigate into the httpd-container directory     |
-| 14   | `echo "FROM httpd:2.4" > Dockerfile`                              | Create and write to Dockerfile                  |
-| 15   | `echo "EXPOSE 80" >> Dockerfile`                                  | Append EXPOSE instruction to Dockerfile         |
-| 16   | `sudo docker build -t my-httpd .`                                 | Build the Docker image                          |
-| 17   | `sudo docker run -d -p 8080:80 --name my-httpd-instance my-httpd` | Run the container                               |
+| Step | Command | Description |
+|------|---------|-------------|
+| 1    | `sudo yum update -y` | Update the system packages. |
+| 2    | `sudo yum install httpd -y` | Install the Apache HTTP Server (httpd). |
+| 3    | `sudo systemctl start httpd` | Start the httpd service. |
+| 4    | `sudo systemctl enable httpd` | Enable httpd to start at boot. |
+| 5    | `sudo yum install -y yum-utils device-mapper-persistent-data lvm2` | Install the necessary packages for managing Docker. |
+| 6    | `sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo` | Add the Docker repository to the system's repository list. |
+| 7    | `sudo yum install -y docker-ce docker-ce-cli containerd.io` | Install Docker Engine, CLI, and containerd. |
+| 8    | `sudo systemctl start docker` | Start Docker. |
+| 9    | `sudo systemctl enable docker` | Set Docker to automatically start on system boot. |
+| 10   | `mkdir httpd-container && cd httpd-container` | Create a directory for the httpd container and navigate into it. |
+| 11   | `echo "FROM httpd:2.4\nEXPOSE 80" > Dockerfile` | Create a Dockerfile for the httpd container specifying Apache version 2.4 and expose port 80. |
+| 12   | `mkdir -p httpd-container` | Ensure the httpd-container directory is created only if it doesn't already exist. |
+| 13   | `cd httpd-container` | Navigate into the httpd-container directory. |
+| 14   | `echo "FROM httpd:2.4" > Dockerfile` | Create and write the base image to the Dockerfile. |
+| 15   | `echo "EXPOSE 80" >> Dockerfile` | Append the EXPOSE instruction to the Dockerfile to make port 80 available outside the container. |
+| 16   | `sudo docker build -t my-httpd .` | Build the Docker image named my-httpd from the Dockerfile in the current directory. |
+| 17   | `sudo docker run -d -p 8080:80 --name my-httpd-instance my-httpd` | Run the container from the my-httpd image in detached mode, mapping port 8080 on the host to port 80 in the container, and name the container instance my-httpd-instance. |
+
 
 Dodatne komande, mozda zatrebaju: 
 1. Stop the Existing Container:
@@ -27,7 +28,7 @@ Dodatne komande, mozda zatrebaju:
 2. To Delete a Stopped Container:
 <b> sudo docker rm [container_name_or_ID] </b>
 
-
+<p></p>
 
 UUD-Lab2 Commands
 | Step                                                      | Command                                                                                     | Description                                                                                        |
@@ -58,7 +59,7 @@ Dodatne komande:
 3. To check if the Docker daemon is running on your system: <b> sudo systemctl status docker </b>
 
 
-
+<p></p>
 
 UUD-Lab3 Commands
 | Step | Command | Description |
@@ -75,7 +76,7 @@ UUD-Lab3 Commands
 | 10. Clone and Build Go Application Using Multi-Stage Builds | `git clone https://github.com/jstanesic/example-go-app`<br>`cd example-go-app`<br>`podman build -f Dockerfile1 -t example:Dockerfile1 .`<br>`podman build -f Dockerfile2 -t example:Dockerfile2 .` | Clone the Go application repository and navigate to the project directory. Build the image using Dockerfile1 and Dockerfile2 to see the benefits of multi-stage builds. |
 | 11. Compare Built Images and Check Benefits of Multi-Stage | `podman image ls` | List and compare the sizes of the built images to discover the benefits of multi-stage builds, especially in reducing the final image size and isolating build dependencies. |
 
-
+<p></p>
 UUD-Lab4 Commands
 | Step | Command | Description |
 | Step | Command | Description |
@@ -91,9 +92,5 @@ UUD-Lab4 Commands
 | 11. Install Podman Compose | `sudo dnf install -y podman-compose` | Install the podman-compose package to manage multi-container applications with a single command. |
 | 13. Create Docker Compose File | `Create a file named docker-compose.yml` | Create a compose file to deploy WordPress and MySQL using podman-compose. |
 | 14. Deploy Using Compose File | `podman-compose up -d` | Deploy WordPress and MySQL by using the compose file you created. |
-
-
-| 13.  | `Create a file named docker-compose.yml` | Create a compose file to deploy WordPress and MySQL using podman-compose. |
-| 14.  | `podman-compose up -d` | Deploy WordPress and MySQL by using the compose file you created. |
 
 
