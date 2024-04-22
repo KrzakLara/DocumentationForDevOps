@@ -74,31 +74,13 @@ UUD-Lab3 Commands
 | 6. Rebuild the image with the new modifications and tag it as 0.0.2: |  `podman build -t getting-started-app:0.0.2 .`| Build this image again, but this time tag it with 0.0.2. |
 | 7. Compare Image Versions | `podman diff getting-started-app:0.0.1 getting-started-app:0.0.2` | Show the differences between the two image versions, 0.0.1 and 0.0.2. |
 | 8. Push Images to Docker Hub | 1.`podman login --username yourusername docker.io`<br> 2.`podman tag getting-started-app:0.0.1 docker.io/yourusername/getting-started-app:0.0.1`<br> 3.`podman push docker.io/yourusername/getting-started-app:0.0.1` <br> 4.`podman push getting-started-app:0.0.2 docker.io/yourusername/getting-started-app:0.0.2` <br> 5.`podman push docker.io/yourusername/getting-started-app:0.0.2`| Log in to Docker Hub and push the images tagged 0.0.1 and 0.0.2 to Docker Hub. |
-| 9. Create a UBI8 Based Containerfile and Build | Create the Containerfile.<br>`podman build -t myweb:0.0.1 .` | Define a new Containerfile using UBI8 as the base image, including httpd setup. Build the image and tag it as 0.0.1. |
+| 9. Create a UBI8 Based Containerfile and Build | 1. `cd /path/to/existing-directory` (Navigate to the Desired Directory)<br>2. `touch Containerfile` (Create the Containerfile)<br>3. `nano Containerfile` (Open the Containerfile for Editing, save and exit with ctrl+X)<br>4. Insert into Containerfile:<br>```<br># Use UBI8 as a base image<br>FROM registry.access.redhat.com/ubi8/ubi:latest<br><br># Update installed packages<br>RUN yum update -y && yum clean all<br><br># Install httpd (Apache web server)<br>RUN yum install httpd -y && yum clean all<br><br># Copy a simple webpage to the default directory of Apache<br>COPY index.html /var/www/html/<br><br># Configure httpd to start when the container launches<br>CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]<br><br># Expose port 80 to access the web server<br>EXPOSE 80<br>``` (Write these commands into the Containerfile)<br>5. `podman build -t myweb:0.0.1 .` (Build the Container Image)<br>6. `podman login --username yourusername docker.io` (Log In to the Public Repository)<br>7. `podman tag myweb:0.0.1 docker.io/yourusername/myweb:0.0.1` (Tag the Image)<br>8. `podman push docker.io/yourusername/myweb:0.0.1` (Push the Image) | Define a new Containerfile using UBI8 as the base image, update packages, install and configure httpd, copy a webpage, expose port 80, build the image, tag it, and push it to Docker Hub. |
 | 10. Configure Quadlet for System Integration | Follow the quadlet guide to create configuration file. | Configure the system so that the container automatically starts with the system using a quadlet configuration file. |
 | 11. Clone and Build Go Application Using Multi-Stage Builds | `git clone https://github.com/jstanesic/example-go-app`<br>`cd example-go-app`<br>`podman build -f Dockerfile1 -t example:Dockerfile1 .`<br>`podman build -f Dockerfile2 -t example:Dockerfile2 .` | Clone the Go application repository and navigate to the project directory. Build the image using Dockerfile1 and Dockerfile2 to see the benefits of multi-stage builds. |
 | 11. Compare Built Images and Check Benefits of Multi-Stage | `podman image ls` | List and compare the sizes of the built images to discover the benefits of multi-stage builds, especially in reducing the final image size and isolating build dependencies. |
 
 dodatne komande(vjezbe 3): `podman ps -a ` (list all containers) i `podman images `
 
-
-# Use UBI8 as a base image
-FROM registry.access.redhat.com/ubi8/ubi:latest
-
-# Update installed packages
-RUN yum update -y && yum clean all
-
-# Install httpd (Apache web server)
-RUN yum install httpd -y && yum clean all
-
-# Copy a simple webpage to the default directory of Apache
-COPY index.html /var/www/html/
-
-# Configure httpd to start when the container launches
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
-
-# Expose port 80 to access the web server
-EXPOSE 80
 
 
 UUD-Lab4 Commands
