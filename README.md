@@ -49,7 +49,7 @@ UUD-Lab2 Commands
 | 14a. Export the nginx container                           | `podman export -o my-nginx.tar my-nginx`                                                     | Export the container's filesystem with `podman export`.                                            |
 | 14b. Differences between save and export                  | N/A                                                                                         | `podman image save` saves the image with all its layers and metadata, suitable for image distribution or backup. `podman export` exports the current filesystem of a container.               |
 | 15. Save changes to a new image                           | `podman commit modify-nginx custom-nginx-image`                                              | Save changes made to a container to a new image with `podman commit`.                              |
-| 16. Modify container's web page without stopping          | `podman cp index.html web8080:/usr/share/nginx/html/index.html`                              | Change the contents of the default web page of the `web8080` container by copying a new `index.html` file into it without stopping the container. Verify changes with `podman exec web8080 cat /usr/share/nginx/html/index.html`. |
+| 16. Modify container's web page without stopping          | `docker cp index.html web8080:/usr/share/nginx/html/`                              | Change the contents of the default web page of the `web8080` container by copying a new `index.html` file into it without stopping the container. Verify changes with `podman exec web8080 cat /usr/share/nginx/html/index.html`. |
                                 
 
 Dodatne komande:
@@ -63,7 +63,7 @@ Dodatne komande:
 UUD-Lab3 Commands
 | Step | Command | Description |
 |------|---------|-------------|
-| 1. Containerize the Application Using Podman | `git clone https://github.com/docker/getting-started-app`<br>`cd getting-started-app`<br>`podman build -t my-nodejs-app .`<br>`podman run -d --name my-running-app -p 3000:3000 my-nodejs-app` | Clone the repository and navigate to the application directory. Build the container image and run the container, mapping port 3000 to the host. |
+| 1. Containerize the Application Using Podman | `git clone https://github.com/docker/getting-started-app`<br>`cd getting-started-app`<br> `touch Dockerfile `<br> `podman build -t my-nodejs-app .`<br>`podman run -d --name my-running-app -p 3000:3000 my-nodejs-app` | Clone the repository and navigate to the application directory. Build the container image and run the container, mapping port 3000 to the host. |
 | 2. Build Image with Initial Tag | `podman build -t getting-started-app .` | Build the initial Docker image from the Containerfile. |
 | 3. Rebuild and Tag Image with 0.0.1 | `podman build -t getting-started-app:0.0.1 .` | Build and tag the image with version 0.0.1. |
 | 4. Inspect the Image | `podman image inspect getting-started-app:0.0.1` | Inspect the detailed information of the image tagged as 0.0.1. |
