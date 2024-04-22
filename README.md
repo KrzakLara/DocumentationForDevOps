@@ -71,7 +71,7 @@ UUD-Lab3 Commands
 | 2. Rebuild and Tag Image with 0.0.1 | `podman build -t getting-started-app:0.0.1 .` | Build and tag the image with version 0.0.1. |
 | 3. Inspect the Image | `podman image inspect getting-started-app:0.0.1` | Inspect the detailed information of the image tagged as 0.0.1. |
 | 5. Modify Application and Rebuild | Modify the application code.<br>`podman build -t getting-started-app:0.0.2 .` | Change the message displayed when there are no to-do items.| 
-| 6. Rebuild the image with the new modifications and tag it as 0.0.2:  `podman build -t getting-started-app:0.0.2 .`|
+| 6. Rebuild the image with the new modifications and tag it as 0.0.2: |  `podman build -t getting-started-app:0.0.2 .`| Build this image again, but this time tag it with 0.0.2. |
 | 7. Compare Image Versions | `podman diff getting-started-app:0.0.1 getting-started-app:0.0.2` | Show the differences between the two image versions, 0.0.1 and 0.0.2. |
 | 8. Push Images to Docker Hub | `podman login --username yourusername docker.io`<br>`podman push getting-started-app:0.0.1 docker.io/yourusername/getting-started-app:0.0.1`<br>`podman push getting-started-app:0.0.2 docker.io/yourusername/getting-started-app:0.0.2` | Log in to Docker Hub and push the images tagged 0.0.1 and 0.0.2 to Docker Hub. |
 | 9. Create a UBI8 Based Containerfile and Build | Create the Containerfile.<br>`podman build -t myweb:0.0.1 .` | Define a new Containerfile using UBI8 as the base image, including httpd setup. Build the image and tag it as 0.0.1. |
