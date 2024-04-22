@@ -3,6 +3,17 @@
 [Intro_to_DevOps_-_LAB2.pdf](https://github.com/KrzakLara/DocumentationForDevOps/files/15067546/Intro_to_DevOps_-_LAB2.pdf)
 [Intro_to_DevOps_-_LAB1.pdf](https://github.com/KrzakLara/DocumentationForDevOps/files/15067545/Intro_to_DevOps_-_LAB1.pdf)
 # DocumentationForDevOps
+[Unit]
+Description=Web container
+After=network.target
+
+[Container]
+Image=myweb:0.0.1
+ExecStartPre=-/usr/bin/podman rm -f web
+Exec=/usr/bin/podman run --name web --replace --rm myweb:0.0.1
+
+[Install]
+WantedBy=multi-user.target
 
 UUD-Lab1 Commands
 | Step | Command | Description |
