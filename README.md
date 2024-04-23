@@ -32,8 +32,7 @@ Dodatne komande, mozda zatrebaju:
    <b>sudo docker stop my-httpd-instance </b>
 2. To Delete a Stopped Container:
 <b> sudo docker rm [container_name_or_ID] </b>
-3. To start a stopwatch:  <b> { time sh -c 'docker run --name my-httpd -p 8080:80 -d httpd; read -p "Container running. Press Enter to stop and remove the container..."; docker stop my-httpd; docker rm my-httpd' ; } 2> time-output.txt
-</b>
+3. To start a stopwatch:  <b> { time sh -c 'command1; command2; command3' ; } 2> time-output.txt</b>
 4. Stop the Stopwatch: <b>cat time-output.txt</b>
 
 
