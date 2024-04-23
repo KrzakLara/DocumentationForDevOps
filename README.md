@@ -64,6 +64,8 @@ Dodatne komande:
 2. kak mi se kontejner zove: <b> podman ps </b>
 3. To check if the Docker daemon is running on your system: <b> sudo systemctl status docker </b>
 
+4. docker cp newindex.html web8080:/var/www/html/index.html
+5.docker exec web8080 /bin/bash -c 'nginx -s reload' 
 
 
 
