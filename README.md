@@ -107,15 +107,15 @@ UUD-Lab4 Commands
 ------------------------------------------------------------------------------
 Dodatne komande:
 1. task 6: contents of a docker file which you have to manually create:
- # Use the official Ubuntu base image
+(ljestve) Use the official Ubuntu base image (komentar)
 FROM ubuntu:latest
-# Install Apache2
+# Install Apache2 (komentar)
 RUN apt-get update && apt-get install -y apache2
-# Set environment variable STUDENT
+# Set environment variable STUDENT (komentar)
 ENV STUDENT "YourUsername YourSurname"
-# Expose port 80
+# Expose port 80 (komentar)
 EXPOSE 80
-# Set the default command to start Apache2
+# Set the default command to start Apache2 (komentar)
 CMD ["apache2ctl", "-D", "FOREGROUND"]
 
 
