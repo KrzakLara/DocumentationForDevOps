@@ -143,7 +143,7 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
       -e WORDPRESS_DB_COLLATE=utf8_general_ci \
       -p 8080:80 \
       wordpress:php8.2 </b>
-   5.Access WordPress in your browser by navigating to <b> http://localhost:8080 or <your_server_ip>:8080 </b>. Follow the setup       instructions to complete the WordPress installation.
+   5. Access WordPress in your browser by navigating to <b> http://localhost:8080 or <your_server_ip>:8080 </b>. Follow the setup       instructions to complete the WordPress installation.
    Ensure that you replace <your_root_password> with a secure password for the MySQL root user.
 
 This setup will create two containers: mysql and wordpress, connected to the labnet network, allowing the WordPress container to communicate with the MySQL container.  
