@@ -63,6 +63,8 @@ Dodatne komande:
 1. Provjera jel Docker runna: <b> sudo docker run hello-world </b>
 2. kak mi se kontejner zove: <b> podman ps </b>
 3. To check if the Docker daemon is running on your system: <b> sudo systemctl status docker </b>
+4, Updating HTML Content: <b> docker exec web8080 sh -c 'echo "<html><body><h1>New Content</h1><p>This is the updated default page.</p></body></html>" > /var/www/html/index.html' </b>
+5. Editing With a Text Editor: <b>docker exec -it web8080 vi /var/www/html/index.html</b>
 
 
 
