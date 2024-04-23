@@ -104,4 +104,46 @@ UUD-Lab4 Commands
 | 13. Create Docker Compose File | `Create a file named docker-compose.yml` | Create a compose file to deploy WordPress and MySQL using podman-compose. |
 | 14. Deploy Using Compose File | `podman-compose up -d` | Deploy WordPress and MySQL by using the compose file you created. |
 
+------------------------------------------------------------------------------
+Dodatne komande:
+1. task 6: contents of a docker file which you have to manually create:
+ # Use the official Ubuntu base image
+FROM ubuntu:latest
+# Install Apache2
+RUN apt-get update && apt-get install -y apache2
+# Set environment variable STUDENT
+ENV STUDENT "YourUsername YourSurname"
+# Expose port 80
+EXPOSE 80
+# Set the default command to start Apache2
+CMD ["apache2ctl", "-D", "FOREGROUND"]
 
+
+2. To deploy WordPress and MySQL containers using Podman and ensure that the WordPress container successfully connects to the MySQL database container, you can follow these steps:
+   1. Pull the required Docker images:
+    <b> podman pull mysql:5.7
+   podman pull wordpress:php8.2  </b>
+     2. Create a custom network with DNS enabled (if not already created):
+    <b> podman network create --dns 8.8.8.8 labnet </b>
+   3. Start the MySQL container:
+   <b> podman run -d --name mysql --network labnet \
+   -e MYSQL_ROOT_PASSWORD=<your_root_password> \
+   -e MYSQL_DATABASE=wordpress \
+   -e MYSQL_USER=student \
+   -e MYSQL_PASSWORD=DB15secure! \
+   mysql:5.7
+   Replace <your_root_password> with a randomized root password for MySQL.  </b>
+   4. Start the WordPress container:
+     <b> podman run -d --name wordpress --network labnet \
+      -e WORDPRESS_DB_HOST=mysql:3306 \
+      -e WORDPRESS_DB_NAME=wordpress \
+      -e WORDPRESS_DB_USER=student \
+      -e WORDPRESS_DB_PASSWORD=DB15secure! \
+      -e WORDPRESS_DB_CHARSET=utf8 \
+      -e WORDPRESS_DB_COLLATE=utf8_general_ci \
+      -p 8080:80 \
+      wordpress:php8.2 </b>
+   5.Access WordPress in your browser by navigating to <b> http://localhost:8080 or <your_server_ip>:8080 </b>. Follow the setup       instructions to complete the WordPress installation.
+   Ensure that you replace <your_root_password> with a secure password for the MySQL root user.
+
+This setup will create two containers: mysql and wordpress, connected to the labnet network, allowing the WordPress container to communicate with the MySQL container.  
