@@ -4,6 +4,7 @@
 [Intro_to_DevOps_-_LAB1.pdf](https://github.com/KrzakLara/DocumentationForDevOps/files/15067545/Intro_to_DevOps_-_LAB1.pdf)
 # DocumentationForDevOps
 
+#lo1,2,3
 
 UUD-Lab1 Commands
 | Step | Command | Description |
